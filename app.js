@@ -12,6 +12,12 @@ function loadEventListeners() {
 
     // remove single X elements.
     taskList.addEventListener('click', removeTask);
+
+    // clear tasks
+    clearBtn.addEventListener('click', clearTask);
+
+    // filter task
+    filter.addEventListener('keyup', filterTask);
 }
 
 function addTask(e) {
@@ -38,4 +44,21 @@ function removeTask(e) {
             e.target.parentElement.remove();
         }
     }
+}
+
+function clearTask(e) {
+    taskList.innerHTML = "";
+}
+
+function filterTask(e) {
+    const text = e.target.value.toLowerCase();
+    document.querySelectorAll('.list-group-item').forEach(function (task) {
+        const item = task.textContent;
+        if(item.toLocaleLowerCase().indexOf(text) != -1) {
+            task.classList.add("d-flex");
+        } else {
+            task.classList.remove("d-flex");
+            task.style.display = 'none';
+        }
+    });
 }
