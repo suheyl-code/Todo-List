@@ -9,6 +9,9 @@ loadEventListeners();
 
 function loadEventListeners() {
     form.addEventListener('submit', addTask);
+
+    // remove single X elements.
+    taskList.addEventListener('click', removeTask);
 }
 
 function addTask(e) {
@@ -26,5 +29,13 @@ function addTask(e) {
 
         taskInput.value = '';
         e.preventDefault();
+    }
+}
+
+function removeTask(e) {
+    if (e.target.classList.contains('delete-item')) {
+        if(confirm('Are you sure?')) {
+            e.target.parentElement.remove();
+        }
     }
 }
