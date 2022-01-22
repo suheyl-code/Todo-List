@@ -1,0 +1,11 @@
+body {
+    direction: ltr;
+    text-align: left !important;
+    background: #333;
+}
+
+.create-task {
+    font-size: larger;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 700;
+}
